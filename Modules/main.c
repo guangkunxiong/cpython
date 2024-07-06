@@ -1,4 +1,4 @@
-/* Python interpreter main program */
+/* Python interpreter main program Python 解释器主程序 对外部代码的执行进行了封装 */
 
 #include "Python.h"
 #include "pycore_call.h"          // _PyObject_CallNoArgs()
@@ -33,14 +33,17 @@ pymain_init(const _PyArgv *args)
 {
     PyStatus status;
 
+    // 初始化 Python 运行时
     status = _PyRuntime_Initialize();
-    if (_PyStatus_EXCEPTION(status)) {
+    if (_PyStatus_EXCEPTION(status)) { // 状态检查
         return status;
     }
 
+    // 初始化 PyPreConfig 结构体
     PyPreConfig preconfig;
     PyPreConfig_InitPythonConfig(&preconfig);
 
+    // Python进行预初始化
     status = _Py_PreInitializeFromPyArgv(&preconfig, args);
     if (_PyStatus_EXCEPTION(status)) {
         return status;
@@ -225,7 +228,7 @@ pymain_import_readline(const PyConfig *config)
     }
 }
 
-
+// 命令模式执行代码的入口
 static int
 pymain_run_command(wchar_t *command)
 {

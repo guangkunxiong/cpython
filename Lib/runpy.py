@@ -5,6 +5,8 @@ module namespace instead of the native filesystem.
 
 This allows Python code to play nicely with non-filesystem based PEP 302
 importers when locating support scripts as well as when importing modules.
+标准库模块
+导入python模块并开始执行
 """
 # Written by Nick Coghlan <ncoghlan at gmail.com>
 #    to implement PEP 338 (Executing Modules as Scripts)

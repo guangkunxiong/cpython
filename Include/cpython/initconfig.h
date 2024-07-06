@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-/* --- PyStatus ----------------------------------------------- */
+/* --- PyStatus 初始化配置的数据结构 ----------------------------------------------- */
 
 typedef struct {
     enum {
@@ -119,7 +119,9 @@ typedef struct PyPreConfig {
        environment variable. */
     int dev_mode;
 
-    /* Memory allocator: PYTHONMALLOC env var.
+    /*
+       选择一个内存分配器
+       Memory allocator: PYTHONMALLOC env var.
        See PyMemAllocatorName for valid values. */
     int allocator;
 } PyPreConfig;

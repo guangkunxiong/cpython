@@ -1,4 +1,4 @@
-/* Minimal main program -- everything is loaded from the library */
+/* Minimal main program -- everything is loaded from the library 可执行文件的入口 */
 
 #include "Python.h"
 

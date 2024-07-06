@@ -27,7 +27,7 @@
 #include "config_common.h"
 
 
-/* --- PyConfig spec ---------------------------------------------- */
+/* --- PyConfig spec º”‘ÿ≈‰÷√ ---------------------------------------------- */
 
 typedef enum {
     PyConfig_MEMBER_INT = 0,

@@ -373,6 +373,17 @@ else_block[asdl_stmt_seq*]:
 
 # While statement
 # ---------------
+# PEG规范和正则类似 * 零次或多次 + 一次或多次 [] 可选部分 | 可选项 () 优先级定义
+# 单引号代表关键字 
+# block指一个或一个以上语句的代码块
+# named_expression 表达式或赋值表达式
+# invalid_while_stmt 表示一个无效的情况
+# while关键子 表示这是一个while循环
+# a=named_expression：循环条件，named_expression来捕获条件表达式，并将其赋值给变量a。
+# : 冒号 
+# b=block：循环体，这些语句在满足循环条件时执行，结果赋值给变量b
+# c=[else_block]：可选的else块，用于在循环条件不再为真时执行。
+# _PyAST_While(a, b, c, EXTRA) 规则匹配时应该执行的代码
 
 while_stmt[stmt_ty]:
     | invalid_while_stmt
@@ -380,6 +391,12 @@ while_stmt[stmt_ty]:
 
 # For statement
 # -------------
+# 有效部分解释
+# for 关键字  star_targets 循环变量赋值到t in关键字 star_expressions 循环遍历的对象 赋值到ex 
+# tc=[TYPE_COMMENT]：可选的类型注释，用于类型检查，结果赋值给变量tc
+# b=block 循环体，循环中要执行的语句块，结果赋值给变量b
+# el=[else_block]：可选的else块 赋值到el
+# 还有一个async的异步版本
 
 for_stmt[stmt_ty]:
     | invalid_for_stmt

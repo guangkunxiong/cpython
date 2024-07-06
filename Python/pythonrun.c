@@ -4,6 +4,7 @@
 /* To help control the interfaces between the startup, execution and
  * shutdown code, the phases are split across separate modules (bootstrap,
  * pythonrun, shutdown)
+ * 封装了C语言的API来处理命令行的输入，执行Python代码，以及处理Python的异常
  */
 
 /* TODO: Cull includes following phase split */
